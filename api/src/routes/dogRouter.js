@@ -6,26 +6,32 @@ const { getAllDogs } = require('../Controller/controllers');
 
 
 router.post("/dog", async (req, res) => {
-    const {
+    let {
         name,
         height,
-        weight,
+        min_weight,
+        max_weight,
         life_span,
         temperaments,
         image
     } = req.body
+    
+    const fixedWeight= []
+    const minWeight = min_weight.trim();
+   const maxWeight = max_weight.trim();
+   fixedWeight.push(minWeight, maxWeight)
 
-    const dogCreated = await Dog.create({
+    let dogCreated = await Dog.create({
         name,
         height,
-        weight,
+        weight: fixedWeight,
         life_span,
-        image
-    });
+        image: image ? image :'https://www.publicdomainpictures.net/pictures/260000/velka/dog-face-cartoon-illustration.jpg'
+    })
 
     let temperamentDb = await Temperament.findAll({
         where: { name: temperaments }
-    });
+    })
 
     dogCreated.addTemperament(temperamentDb);
 

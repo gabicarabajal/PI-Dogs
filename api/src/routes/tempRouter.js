@@ -2,7 +2,6 @@ const { default: axios } = require('axios');
 const { Temperament } = require('../db');
 const { API_KEY } = process.env;
 const { Router } = require('express');
-// const { getAllDogs } = require('./controllers');
 const express = require('express');
 
 
@@ -14,8 +13,9 @@ router.get('/temperament', async (req, res) => {
     // console.log(temperaments);
     const temps = temperaments.toString().split(",");
     temps.forEach(e => {
+        let i = e.trim()
         Temperament.findOrCreate({
-            where: { name: e }
+            where: { name: i }
         })
     })
 

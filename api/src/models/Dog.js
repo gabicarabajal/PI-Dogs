@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     weight: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
     life_span: {
@@ -32,7 +32,6 @@ module.exports = (sequelize) => {
     },
     createdInDb: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
       defaultValue: true,
     }
   });

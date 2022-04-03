@@ -4,25 +4,37 @@ const { API_KEY } = process.env;
 
 const getApiData = async () => {
     const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
-    const apiData = await apiUrl.data.map(d => {
+    const apiInfo = await apiUrl.data.map(d => {
         const temperaments = d.temperament?.toString().split(",")
         const fixedTemps = []
         temperaments?.forEach((el) => {
-            fixedTemps.push(el.trim());
+            fixedTemps.push({'name' : el.trim()})
         });
+
+        const fixedWeight = []
+        d.weight.metric.split("-")?.forEach(el => {
+            fixedWeight.push(el.trim())
+        })
+
+        
+        if(!fixedWeight[1]) {
+            fixedWeight.push(fixedWeight[0])
+        }
+        
 
         return {
             id: d.id,
             name: d.name,
-            weight: d.weight.metric,
+            weight: fixedWeight,
             height: d.height.metric,
             temperaments: fixedTemps,
             life_span: d.life_span,
-            image: d.image.url
+            image: d.image.url,
+            api: true
         }
     });
 
-    return apiData;
+    return apiInfo;
 };
 
 const getDbData = async () => {
@@ -38,9 +50,9 @@ const getDbData = async () => {
 };
 
 const getAllDogs = async () => {
-    const apiData = await getApiData();
+    const apiUrl = await getApiData();
     const dbData = await getDbData();
-    const allData = apiData.concat(dbData);
+    const allData = apiUrl.concat(dbData);
     return allData;
 };
 
