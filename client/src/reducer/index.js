@@ -96,6 +96,11 @@ const rootReducer = (state = initialState, {type, payload}) => {
                 dogs: sortedWeight
             }
 
+        case 'POST_DOG':
+            return {
+                ...state,
+            }
+
         case 'DOGS_BY_NAME':
             return {
                 ...state,

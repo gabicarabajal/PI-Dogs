@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
 import Temperament from "./Temperament";
+import SearchBar from "./SearchBar";
 
 
 
@@ -62,6 +63,7 @@ export default function Home () {
                 <div>
                     <Link to= "/dog">CREATE DOG</Link>
                 </div>
+                <SearchBar/>
 
                 <div>        
                     
@@ -117,3 +119,4 @@ export default function Home () {
         </div>    
     )
 }
+
