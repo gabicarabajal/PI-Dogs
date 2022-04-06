@@ -50,9 +50,9 @@ const getDbData = async () => {
 };
 
 const getAllDogs = async () => {
-    const apiUrl = await getApiData();
+    const apiData = await getApiData();
     const dbData = await getDbData();
-    const allData = apiUrl.concat(dbData);
+    const allData = apiData.concat(dbData);
     return allData;
 };
 
