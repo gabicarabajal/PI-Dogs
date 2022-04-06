@@ -7,7 +7,6 @@ export default function DogCreate(){
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const temperaments = useSelector((state) => state.temperaments);
-    const [button, setButtton] = useState(true);
     const [errors, setErrors] = useState({});
 
     const [input, setInput] = useState({
@@ -25,6 +24,10 @@ export default function DogCreate(){
             ...input,
             [e.target.name] : e.target.value
         })
+        setErrors(validate({
+            ...input,
+            [e.target.name] : e.target.value
+        }))
         console.log(input)
     }
 
@@ -60,7 +63,7 @@ export default function DogCreate(){
             temperaments: input.temperaments.filter(t => t !== el)
         })
     }
-    
+
     useEffect(() => {
         dispatch(getTemperaments());
     },[dispatch]);
@@ -81,6 +84,9 @@ export default function DogCreate(){
                        onChange={handleChange}
                     />
                 </div> 
+                <div>
+                    {errors.name && <p>{errors.name}</p>}
+                </div>
                 <div>   
                     <label>Height:</label>
                     <input 
@@ -89,6 +95,9 @@ export default function DogCreate(){
                        name='height'
                        onChange={handleChange}
                     />
+                </div>
+                <div>
+                    {errors.height && <p>{errors.height}</p>}
                 </div>
                 <div>    
                     <label>Min Weight:</label>
@@ -108,6 +117,9 @@ export default function DogCreate(){
                        onChange={handleChange}
                     />
                 </div>
+                <div>
+                    {errors.weight && <p>{errors.weight}</p>}
+                </div>
                 <div>    
                     <label>Life span:</label>
                     <input 
@@ -116,6 +128,9 @@ export default function DogCreate(){
                        name='life_span'
                        onChange={handleChange}
                     />
+                </div>
+                <div>
+                    {errors.life_span && <p>{errors.life_span}</p>}
                 </div>
                 <div>
                     <label>Image</label>
@@ -142,8 +157,28 @@ export default function DogCreate(){
                         </li>
                     </ul>
                 </div>
+
+                <br />
+
+
+
                 <button type='submit'>Create dog</button>
             </form>
+            <div>
+                <div>
+                    <h1>Temperaments</h1>
+                </div>
+                <div>
+                    {input.temperaments.map(t => 
+                        <div>
+                            <p>{t}</p>
+                            <div>
+                                <button onClick={() => handleDelete(t)}>X</button>
+                            </div>
+                        </div>    
+                    )}
+                </div>
+            </div>
         </div>
     )
 

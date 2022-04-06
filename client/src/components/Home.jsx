@@ -82,7 +82,7 @@ export default function Home () {
                     <select onChange={handleFilterBySource}>
                         <option disabled selected>Filter by source</option>
                         <option value="Todos">All</option>
-                        <option value="createdInDB">Created</option>
+                        <option value="createdInDb">Created</option>
                         <option value="api">API</option>
                     </select>
 

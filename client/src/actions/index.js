@@ -73,7 +73,7 @@ export function OrderByWeight(payload){
 };
 
 export function postDog(payload){
-    return async function(dispatch){
+    return async function(){
         const data = await axios.post('http://localhost:3001/dog', payload);
         return data;
     }
