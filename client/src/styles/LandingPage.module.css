@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Lato:wght@400;900&family=Oswald:wght@300;500&family=Roboto+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Lato:wght@400;900&family=Oswald:wght@300;500&family=Roboto+Condensed:wght@700&family=Zilla+Slab+Highlight:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
+
+
+
+.desc{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+}
+.page{
+    background-image: url('../assets/foto3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position:absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    /* width: 884px;
+    height: 450px; */
+}
+
+.git{
+    display: flex;
+    justify-content: end;
+    margin-top: 28rem;
+    margin-right: 2rem;
+}
+
+.btnGit{
+    border: solid 2px transparent;
+    width: 5rem;
+    height: 5rem;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    transition: background-color;
+    cursor:pointer;
+    border-radius: 9999px;
+    margin-top: 0.5rem;
+
+}
+.enter{
+    display: flex;
+    justify-content: center;
+}
+.cta {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+   }
+   
+   .cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: #daf93e;
+    width: 40px;
+    height: 40px;
+    transition: all 0.3s ease;
+   }
+   
+   .cta span {
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #000000;
+   }
+   
+   .cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #f40909;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+   }
+   
+   .cta:hover:before {
+    width: 100%;
+    background: #c8fe409a;
+   }
+   
+   .cta:hover svg {
+    transform: translateX(0);
+   }
+   
+   .cta:active {
+    transform: scale(0.95);
+   }
+
+.btnGit:hover{
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
+
+.wrapper {
+  height: 8vh;
+  /*This part is important for centering*/
+  display: flex;
+  justify-content: center;
+  margin-top: 7vh;
+
+}
+
+.typing {
+  width: 9ch;
+  animation: typing 2s steps(15), blink .3s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  text-transform: Uppercase;
+  font-family: 'Rubik', sans-serif;
+  font-size: 3em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}

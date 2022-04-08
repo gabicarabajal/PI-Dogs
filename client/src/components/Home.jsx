@@ -7,7 +7,7 @@ import Card from "./Card";
 import Paginado from "./Paginado";
 import Temperament from "./Temperament";
 import SearchBar from "./SearchBar";
-
+import s from '../styles/Home.module.css';
 
 
 export default function Home () {
@@ -56,16 +56,15 @@ export default function Home () {
 
     return (
         
-        <div>
-            <h1>HOME</h1>
-            <div>
+        <div className={s.home}>
+            {/* <h1>HOME</h1> */}
+            <div className={s.top_bar}>
                 
-                <div>
+                <div className={s.creatingDog}>
                     <Link to= "/dog">CREATE DOG</Link>
                 </div>
-                <SearchBar/>
 
-                <div>        
+                <div className={s.filters_container}>        
                     
                     <select onChange={handleOrderByName}>
                         <option disabled selected>Alphabetical order</option>
@@ -93,17 +92,12 @@ export default function Home () {
                 
 
                 </div>
+                <SearchBar/>
 
 
             </div>
 
-            <Paginado
-                DogsOnPage = { DogsOnPage }
-                allDogs = { allDogs.length }
-                paginado = { paginado }
-            />
-
-            <div>
+            <div className={s.cards_container}>
                 {CurrentDogs?.map(d => (  
                     <Card
                     key={d.id}
@@ -115,6 +109,13 @@ export default function Home () {
                     />    
                 ))}
             </div>
+
+            
+            <Paginado
+                DogsOnPage = { DogsOnPage }
+                allDogs = { allDogs.length }
+                paginado = { paginado }
+            />
                 
         </div>    
     )
