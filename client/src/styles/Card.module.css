@@ -45,24 +45,42 @@
 .overlay{
     width: 200px;
     height: 220px;
-    position:relative;
-    bottom: 19.5rem;
+    position: relative;
+    bottom: 18.3rem;
     border-radius: 20px;
     text-align: center;
+    
     opacity: 0;
-
     transition: 0.5s;
 
     
     background-color: rgba(0,0,0,0.3);
 
-    border: 3px solid #7B2CBF;
+    border: none;
 }
 
-.overlay a {
+.overlay > a {
     display: inline-block;
 
+    text-decoration: none;
+    width: 200px;
+    height: 220px;
     
+
+    font-size: 15px;
+
+    text-align: center;
+
+    font-weight: 700;
+    color: white;
+    
+    border-radius: 16px;
+}
+
+
+.overlay:hover {
+    opacity: 1;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
 }
 
 /* .container {

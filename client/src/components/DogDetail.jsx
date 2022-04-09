@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetail } from '../actions';
 import { useEffect } from 'react';
+import s from '../styles/DogDetail.module.css';
 
 export default function DogDetail(){
     
@@ -20,13 +21,13 @@ export default function DogDetail(){
     myDog[0]?.temperaments?.forEach((t) => temps.push(t.name));
 
     return (
-        <div>
+        <div className={s.container}>
             <Link to='/home'>
-                <button>Home</button>
+                <button className={s.button}>Home</button>
             </Link>
             {
             myDog.length > 0 ?
-            <div>
+            <div className={s.dog_container}>
                 <h1>{myDog[0].name}</h1>
                 <img  src={myDog[0].image} alt='Imagen' height='300' width='300'/>
                 <h2>Height:</h2><h4>Between {myDog[0].height} cm</h4>
