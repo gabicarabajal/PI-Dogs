@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { postDog, getTemperaments } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
+import s from '../styles/DogCreate.module.css';
 
 export default function DogCreate(){
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const temperaments = useSelector((state) => state.temperaments);
     const [errors, setErrors] = useState({});
+    const [button, setButton] = useState(true)
 
     const [input, setInput] = useState({
         name: '',
@@ -68,120 +70,148 @@ export default function DogCreate(){
         dispatch(getTemperaments());
     },[dispatch]);
 
+    useEffect(()=>{
+        if (input.name.length > 0 && input.min_height.length > 0  && input.max_height.length > 0 && input.min_weight.length > 0 && input.max_weight.length > 0) setButton(false)
+        else setButton(true)
+    }, [input, setButton])
+
     return (
-        <div>
-            <Link to='/home'>
-                <button>Back</button>
-            </Link>
-            <h1>Create your dog!</h1>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div>
-                    <label>Name:</label>
-                    <input 
-                       type='text'
-                       value={input.name}
-                       name='name'
-                       onChange={handleChange}
-                    />
-                </div> 
-                <div>
-                    {errors.name && <p>{errors.name}</p>}
+        <div className={s.container}>
+            
+            <Link className={s.home_btn} to="/home"><h3>Home</h3></Link>
+            
+            <div className={s.form_container}>
+                <h1>Create your dog!</h1>
+            
+            <form className={s.form} onSubmit={handleSubmit} id="form">
+                <div className={s.name_lifespan_img_container}>
+                    <input autoComplete="off"
+                        type="text"
+                        value={input.name}
+                        name ="name"
+                        onChange={(e) => handleChange(e)}
+                        placeholder="Name..."
+                        />
+                    </div>
+
+                <div className={s.error}>{errors.name && <p>{errors.name}</p>}</div>
+                
+                <div className={s.weight_height_container}>
+                <div className={s.min_container}>
+                    <input autoComplete="off"
+                        type="text"
+                        value={input.min_height}
+                        name ="min_height"
+                        onChange={(e) => handleChange(e)}
+                        placeholder="Min height..."
+                        />
+                    </div>
+                
+
+                <div className={s.max_container}>
+                    <input autoComplete="off"
+                        type="text"
+                        value={input.max_height}
+                        name ="max_height"
+                        onChange={(e) => handleChange(e)}
+                        placeholder="Max height..."
+                        />
+                    </div>
+                
                 </div>
-                <div>   
-                    <label>Height:</label>
-                    <input 
-                       type='text'
-                       value={input.height}
-                       name='height'
-                       onChange={handleChange}
-                    />
+                <div className={s.error}>{errors.height && <p>{errors.height}</p>}</div>
+                
+                <div className={s.weight_height_container}>
+                <div className={s.min_container}>
+                    <input autoComplete="off"
+                        type="text"
+                        value={input.min_weight}
+                        name ="min_weight"
+                        onChange={(e) => handleChange(e)}
+                        placeholder="Min weight..."
+                        />
+                    </div>
+                
+
+                <div className={s.max_container}>
+                    <input autoComplete="off"
+                        type="text"
+                        value={input.max_weight}
+                        name ="max_weight"
+                        onChange={(e) => handleChange(e)}
+                        placeholder="Max weight..."
+                        />
+                    </div>
+                
                 </div>
-                <div>
-                    {errors.height && <p>{errors.height}</p>}
+                <div className={s.error}>{errors.weight && <p>{errors.weight}</p>}</div>
+                
+                <div className={s.name_lifespan_img_container}>
+                    <input autoComplete="off"
+                        type="text"
+                        value={input.life_span}
+                        name ="life_span"
+                        onChange={(e) => handleChange(e)}
+                        placeholder="Expected lifespan... ex: 14 - 16"
+                        />
+                    </div>
+                <div className={s.error}>{errors.life_span && <p>{errors.life_span}</p>}</div>
+                
+                <div className={s.name_lifespan_img_container}>
+                    <input autoComplete="off"
+                        type="text"
+                        value={input.image}
+                        name ="image"
+                        onChange={(e) => handleChange(e)}
+                        placeholder="Image URL..."
+                        />
                 </div>
-                <div>    
-                    <label>Min Weight:</label>
-                    <input 
-                       type='text'
-                       value={input.min_weight}
-                       name='min_weight'
-                       onChange={handleChange}
-                    />
+
+                <div className={s.h2_container}>
+                    <h2>Select Temperaments</h2>
                 </div>
-                <div>
-                    <label>Max Weight:</label>
-                    <input
-                       type='text'
-                       value={input.max_weight}
-                       name='max_weight'
-                       onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    {errors.weight && <p>{errors.weight}</p>}
-                </div>
-                <div>    
-                    <label>Life span:</label>
-                    <input 
-                       type='text'
-                       value={input.life_span}
-                       name='life_span'
-                       onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    {errors.life_span && <p>{errors.life_span}</p>}
-                </div>
-                <div>
-                    <label>Image</label>
-                    <input 
-                       type='text'
-                       value={input.image}
-                       name='image'
-                       onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <h2>Select temperaments</h2>
-                </div>
-                <div>
-                    <select onChange={(e) => handleSelect(e)}>
-                        <option>Temperaments</option>
-                        {temperaments.map(t => (
-                            <option value={t.value}>{t.name}</option>
+
+                <div className={s.select_container}>
+                    <select className={s.temps_select} onChange={handleSelect}>
+                        <option disabled selected>Temperaments</option>
+                        {temperaments.map(d => (
+                    
+                        <option value={d.name}>{d.name}</option>
                         ))}
                     </select>
-                    <ul>
-                        <li>
-                            {input.temperaments.map(el => el + ', ')}
-                        </li>
-                    </ul>
                 </div>
-
+                
                 <br />
 
+                
 
-
-                <button type='submit'>Create dog</button>
             </form>
-            <div>
-                <div>
+
+            </div>
+
+            <div className={s.create_btn_container}>
+                <button className={s.create_btn} disabled={button} type="submit" form="form">Create Dog</button>
+            </div>
+
+            <div className={s.temps_container}>
+                <div className={s.temps_h1_container}>
                     <h1>Temperaments</h1>
                 </div>
-                <div>
-                    {input.temperaments.map(t => 
-                        <div>
-                            <p>{t}</p>
-                            <div>
-                                <button onClick={() => handleDelete(t)}>X</button>
+                <div className={s.selected_temps_container}>  
+                    {input.temperaments.map(el =>
+                        <div className={s.added_temp}>
+                            <p>{el}</p>
+                            <div className={s.temps_btn_overlay}>
+                                <button className={s.temps_btn} onClick={() => handleDelete(el)}><i class="gg-close-o"></i></button>
                             </div>
-                        </div>    
+                        </div>
                     )}
                 </div>
+                      
             </div>
+            
         </div>
     )
-
 }
 
 const validate = (input) => {

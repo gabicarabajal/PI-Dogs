@@ -5,11 +5,11 @@ ul {
     justify-content: center;
     align-items: center;
 
-    gap: 20px;
+    gap: 35px;
 }
 
 li {
-    width: 35px;
+    width: 10px;
 }
 
 li:last-child {
@@ -23,12 +23,12 @@ li:last-child {
 }
 
 .btn {
-    border-radius: 16px;
-    background-color: white;
-    color: #3C096C;
-    height: 35px;
-    width: 35px;
-    padding: 7px;
+    border-radius: 9999px;
+    background-color: #9fa67b8a;
+    color: #0d0c0c;
+    height: 20px;
+    width: 20px;
+    padding: 6px;
 
     font-weight: 900;
 
@@ -42,7 +42,7 @@ li:last-child {
 }
 
 .btn:hover {
-    background-color: #7B2CBF;
+    background-color: #408ac2;
     color: white;
 
 }

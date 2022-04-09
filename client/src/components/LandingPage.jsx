@@ -7,12 +7,12 @@ export default class LandingPage extends Component {
     render() {
         return (
             <div className={s.page}>
-                    <div class={s.wrapper}>
-                        <div class={s.typing}>
-                             DOGS APP
-                        </div>
+                <div class={s.wrapper}>
+                    <div class={s.typing}>
+                        DOGS APP
                     </div>
-                    <div className={s.desc}>
+                </div>
+                <div className={s.desc}>
                     <h3>A place to know more about dogs breeds or create a new one!</h3>
                 </div>
                 <div className={s.enter}>

@@ -8,7 +8,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10vh;
+    margin-top: 20vh;
+    font-size: 150%;
 }
 .page{
     background-image: url('../assets/foto3.jpg');
@@ -26,7 +27,7 @@
 .git{
     display: flex;
     justify-content: end;
-    margin-top: 28rem;
+    margin-top: 19rem;
     margin-right: 2rem;
 }
 
@@ -50,6 +51,7 @@
     justify-content: center;
 }
 .cta {
+    top: 4px;
     position: relative;
     margin: auto;
     padding: 12px 18px;
@@ -65,29 +67,30 @@
     left: 0;
     display: block;
     border-radius: 50px;
-    background: #daf93e;
-    width: 40px;
-    height: 40px;
+    background: #daf93eb9;
+    width: 60px;
+    height: 60px;
     transition: all 0.3s ease;
    }
    
    .cta span {
-    position: relative;
+    position:relative;
+    top: 4px;
     font-family: "Ubuntu", sans-serif;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 900;
     letter-spacing: 0.05em;
     color: #000000;
    }
    
    .cta svg {
     position: relative;
-    top: 0;
+    top: 4px;
     margin-left: 10px;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke: #f40909;
+    stroke: #2d2af3;
     stroke-width: 2;
     transform: translateX(-5px);
     transition: all 0.3s ease;
@@ -107,7 +110,7 @@
    }
 
 .btnGit:hover{
-    background-color: rgba(0, 0, 0, 0.24);
+    background-color: #daf93eb9;
 }
 
 
@@ -116,7 +119,7 @@
   /*This part is important for centering*/
   display: flex;
   justify-content: center;
-  margin-top: 7vh;
+  margin-top: 8vh;
 
 }
 
@@ -128,7 +131,7 @@
   border-right: 3px solid;
   text-transform: Uppercase;
   font-family: 'Rubik', sans-serif;
-  font-size: 3em;
+  font-size: 4em;
 }
 
 @keyframes typing {
