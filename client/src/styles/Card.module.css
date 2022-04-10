@@ -83,6 +83,29 @@
     box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5);
 }
 
+.data_container {
+    height: 200px;
+
+    display: flex;
+    position:relative;
+    
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    bottom:30rem;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+.data_container p {
+    font-weight: 1px;
+    font-size: 10px;
+}
+
 /* .container {
     position: relative;
     width: 190px;

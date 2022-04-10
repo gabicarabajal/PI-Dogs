@@ -16,17 +16,11 @@ export default function Card({image, name, temperaments, weight, id}){
             <div className={s.overlay}>
                 <a href={`http://localhost:3000/dogs/${id}`}><h3>details</h3></a>
             </div>
-            {/* <div className={s.overlay}>
-                <a href={`http://localhost:3000/dogs/${id}`}><h3>details</h3></a>
-            </div>
-            <div className={s.img_container}>
-                <img className={s.img} src={image}  alt='img not found'/>
-            </div>
             <div className={s.data_container}>
                 <h2>{name}</h2>
                 <p>{fixedTemps?.join(', ')}</p>
                 <h5>{weight[0]} and {weight[1]} Kg</h5>
-            </div> */}
+            </div>
             </div>
         </div>
     );
