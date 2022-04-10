@@ -8,7 +8,7 @@
     width: 100%;
     height: 90%;
     display: grid;
-    grid-template-columns: 650px auto;
+    grid-template-columns: 700px auto;
     grid-template-rows: 30px auto 10px ;
 }
 
@@ -19,11 +19,11 @@
     height: 450px;
     display: flex;
     justify-content:center;
-    background-color: black;
+    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
     padding-top: 20px;
     padding-right: 20px;
-    margin-left: 7rem;
-    margin-top: 2rem;
+    margin-left: 13rem;
+    margin-top: 3.5rem;
     padding-left: 20px;
     border-radius: 16px;
     padding-bottom: 20px;
@@ -36,13 +36,13 @@
     grid-row: 2 / 3;
     background-color: white;
     width: 450px;
-    height: 450px;
+    height: 540px;
     display: grid;
-    grid-template-rows: 50px 250px 150px;
+    grid-template-rows: 50px 240px 250px;
     align-items: center;
     padding-right: 20px;
     padding-bottom: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 10px;
     padding-top: 20px;
     padding-left: 20px;
@@ -75,7 +75,7 @@ img{
     align-items:center;  
     width: 450px;
     height: 250px;
-    
+    margin-top: 5rem;
     
 }
 
@@ -83,13 +83,17 @@ img{
     width: 150px;
     height: 50px;
 
-    padding: 10px;
-
     border-top: 1px solid #9D4EDD;
+}
+.dog_info h4{
+    font-size: 15px;
 }
 
 .dog_info h2 {
-    padding-bottom: 10px;
+    padding-top: 5px;
+    font-size: 15px;
+    color: #9D4EDD;   
+    
 }
 
 .temperaments_container {
@@ -109,9 +113,13 @@ img{
     
 }
 
+.temperaments_container h2 {
+    color: #9D4EDD;
+    font-size: 15px;;
+}
 .temp {
-    height: 40px;
-    width: 110px;
+    height: 30px;
+    width: 100px;
 
     background-color: #408ac2;
 
@@ -128,7 +136,44 @@ img{
 
 }
 
-
+.button {
+    width: 6em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3rem;
+    margin-top: 3rem;
+    font-weight: 700;
+   }
+   
+   .button::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #0fd850 0%, #f9f047 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   .button:hover::before {
+    width: 9em;
+   }
 
 /* 
 

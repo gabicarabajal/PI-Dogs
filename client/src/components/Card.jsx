@@ -18,8 +18,10 @@ export default function Card({image, name, temperaments, weight, id}){
             </div>
             <div className={s.data_container}>
                 <h2>{name}</h2>
-                <p>{fixedTemps?.join(', ')}</p>
-                <h5>{weight[0]} and {weight[1]} Kg</h5>
+                <p>{fixedTemps?.join(', ')}<br />
+                    {weight[0]} and {weight[1]} Kg
+                </p>
+    
             </div>
             </div>
         </div>

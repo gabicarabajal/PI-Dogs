@@ -1,7 +1,7 @@
 /* From cssbuttons.io by @Tiagoadag */
 .card {
- width: 200px;
- height: 220px;
+ width: 250px;
+ height: 230px;
  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
  border-radius: 20px;
  transition: all .3s;
@@ -9,8 +9,8 @@
 }
 
 .card2 {
- width: 200px;
- height: 220px;
+ width: 250px;
+ height: 230px;
  background-color: #ffffff;
  border-radius: 20px;
  transition: all .2s;
@@ -28,15 +28,14 @@
 }
 
 .img_container {
-    width: 200px;
-    height: 220px;
+    width: 250px;
+    height: 230px;
 }
 
 .img {
-    width: 200px;
-    height: 220px;
+    width: 250px;
+    height: 230px;
     object-fit: cover;
-
     border-radius: 20px;
 
     
@@ -84,7 +83,7 @@
 }
 
 .data_container {
-    height: 200px;
+    height: 90px;
 
     display: flex;
     position:relative;
@@ -93,10 +92,15 @@
     align-items: center;
     align-content: center;
     flex-direction: column;
-    bottom:30rem;
+    bottom:25.8rem;
+    background-color: rgba(0, 0, 0, 0.295);
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius:0px 0px 20px 20px;
+}
 
-    padding-left: 10px;
-    padding-right: 10px;
+.data_container h2{
+    margin:0px;
 }
 
 

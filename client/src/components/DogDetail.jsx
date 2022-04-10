@@ -36,12 +36,12 @@ export default function DogDetail() {
                                 <h1>{myDog[0].name}</h1>
                             </div>
                             <div className={s.dog_info}>
-                                <h2>Height:</h2><h4>Between {myDog[0].height} cm</h4>
-                                <h2>Weight:</h2><h4>Between {myDog[0].weight[0]} and {myDog[0].weight[1]} Kg</h4>
-                                <h2>Lifespan:</h2><h4>Between {myDog[0].life_span}</h4>
+                                <h2>HEIGHT:</h2><h4>Between {myDog[0].height} cm</h4>
+                                <h2>WEIGHT:</h2><h4>Between {myDog[0].weight[0]} and {myDog[0].weight[1]} Kg</h4>
+                                <h2>LIFESPAN:</h2><h4>Between {myDog[0].life_span}</h4>
                             </div>
                             <div className={s.temperaments_container}>
-                                <h2>Temperaments:</h2>
+                                <h2>TEMPERAMENTS:</h2>
                                 {temps.map(t => <div className={s.temp}>
                                     {t}
                                 </div>)}
