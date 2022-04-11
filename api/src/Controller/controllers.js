@@ -20,13 +20,21 @@ const getApiData = async () => {
         if(!fixedWeight[1]) {
             fixedWeight.push(fixedWeight[0])
         }
+
+        const heightFix = [];
+        d.height.metric.split('-')?.forEach(h => {
+            heightFix.push(h.trim());
+        })
+        if(!heightFix[1]){
+            heightFix.push(heightFix[0]);
+        }
         
 
         return {
             id: d.id,
             name: d.name,
             weight: fixedWeight,
-            height: d.height.metric,
+            height: heightFix,
             temperaments: fixedTemps,
             life_span: d.life_span,
             image: d.image.url,

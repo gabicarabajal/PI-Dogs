@@ -8,7 +8,8 @@ const { getAllDogs } = require('../Controller/controllers');
 router.post("/dog", async (req, res) => {
     let {
         name,
-        height,
+        min_height,
+        max_height,
         min_weight,
         max_weight,
         life_span,
@@ -21,9 +22,14 @@ router.post("/dog", async (req, res) => {
    const maxWeight = max_weight.trim();
    fixedWeight.push(minWeight, maxWeight)
 
+   const heightFix = [];
+   const heightMin = min_height.trim();
+   const heightMax = max_height.trim();
+   heightFix.push(heightMin, heightMax)
+
     let dogCreated = await Dog.create({
         name,
-        height,
+        height: heightFix,
         weight: fixedWeight,
         life_span,
         image: image ? image :'https://www.publicdomainpictures.net/pictures/260000/velka/dog-face-cartoon-illustration.jpg'
