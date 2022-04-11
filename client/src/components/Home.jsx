@@ -8,7 +8,7 @@ import Paginado from "./Paginado";
 import Temperament from "./Temperament";
 import SearchBar from "./SearchBar";
 import s from '../styles/Home.module.css';
-
+import { GiDogHouse } from 'react-icons/gi';
 
 export default function Home () {
     
@@ -33,6 +33,11 @@ export default function Home () {
         dispatch(getTemperaments())
     },[dispatch]); 
     
+    function handleClick(e){
+        e.preventDefault();
+        dispatch(getDogs());
+    }
+
     const handleFilterByTemperament = (e) => {
         dispatch(FilterByTemperament(e.target.value))
         setCurrentPage(1)
@@ -63,6 +68,7 @@ export default function Home () {
                 <div className={s.creatingDog}>
                     <Link to= "/dog">CREATE DOG</Link>
                 </div>
+                <button className={s.btnHome} onClick={e => {handleClick(e)}}><GiDogHouse/></button>
 
                 <div className={s.filters_container}>        
                     

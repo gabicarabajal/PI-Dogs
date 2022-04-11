@@ -13,11 +13,12 @@ export default function DogCreate(){
 
     const [input, setInput] = useState({
         name: '',
-        height: '',
-        min_weight: "",
-        max_weight: "",
-        life_span: "",
-        image: "",
+        min_height: '',
+        max_height: '',
+        min_weight: '',
+        max_weight: '',
+        life_span: '',
+        image: '',
         temperaments: []
     });
 
@@ -49,11 +50,12 @@ export default function DogCreate(){
         alert('Dog create succefully!')
         setInput({
             name: '',
-            height: '',
-            min_weight: "",
-            max_weight: "",
-            life_span: "",
-            image: "",
+            min_height: '',
+            max_height: '',
+            min_weight: '',
+            max_weight: '',
+            life_span: '',
+            image: '',
             temperaments: []
         })
         navigate('/home');
@@ -219,10 +221,10 @@ const validate = (input) => {
     if(!input.name){
         errors.name = `The name is required.(It shouldn't contain numbers)`
     }
-    if(!input.height){
+    if(!input.min_height || !input.max_height){
         errors.height = `The weight is required.(It should be: ej '20 to 30')`
     }
-    if(!input.weight || !input.weight){
+    if(!input.min_weight || !input.max_weight){
         errors.weight = `The weight is required.(It should't be words)`
     }
     if(!input.life_span){
