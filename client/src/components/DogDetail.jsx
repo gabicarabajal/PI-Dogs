@@ -49,7 +49,8 @@ export default function DogDetail() {
                         </div>
                     </div>
                     :
-                    <p>Loading...</p>
+                    <div className={s.loader}>
+                    </div>
             }
         </div>
     )

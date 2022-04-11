@@ -14,7 +14,7 @@ export default function Card({image, name, temperaments, weight, id}){
                 <img className={s.img} src={image}  alt='img not found'/>
             </div>
             <div className={s.overlay}>
-                <a href={`http://localhost:3000/dogs/${id}`}><h3>details</h3></a>
+                <a href={`http://localhost:3000/dogs/${id}`}><h3>Details</h3></a>
             </div>
             <div className={s.data_container}>
                 <h2>{name}</h2>

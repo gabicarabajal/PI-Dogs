@@ -42,10 +42,10 @@
 }
 
 .overlay{
-    width: 200px;
-    height: 220px;
+    width: 250px;
+    height: 230px;
     position: relative;
-    bottom: 18.3rem;
+    bottom: 19.1rem;
     border-radius: 20px;
     text-align: center;
     
@@ -53,7 +53,7 @@
     transition: 0.5s;
 
     
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
 
     border: none;
 }
@@ -92,7 +92,7 @@
     align-items: center;
     align-content: center;
     flex-direction: column;
-    bottom:25.8rem;
+    bottom:26.7rem;
     background-color: rgba(0, 0, 0, 0.295);
     padding-left: 0px;
     padding-right: 0px;
@@ -101,14 +101,47 @@
 
 .data_container h2{
     margin:0px;
+    font-size: 22px;
+    color: #daf93ee7;
+    border-radius: 1px;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 
 
 .data_container p {
-    font-weight: 1px;
-    font-size: 10px;
+    margin:0px;
+    font-weight: 8px;
+    font-size: 50px;
+    border-radius: 20px;
+    color:whitesmoke ;
+    opacity: 0;
+    transition: 0.5s;
+    text-align: center;
 }
+
+.data_container > p {
+    display: inline-block;
+
+    text-decoration: none;
+    
+    height: 80px;
+    
+    font-weight: 10px;
+    font-size: 10px;
+
+    text-align: center;
+
+    color: white;
+    
+    border-radius: 16px;
+}
+
+.data_container > p:hover {
+    opacity: 1;
+    /* box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.5); */
+}
+
 
 /* .container {
     position: relative;
