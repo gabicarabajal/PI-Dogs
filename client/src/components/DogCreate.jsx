@@ -9,7 +9,7 @@ export default function DogCreate(){
     const navigate = useNavigate();
     const temperaments = useSelector((state) => state.temperaments);
     const [errors, setErrors] = useState({});
-    const [button, setButton] = useState(true)
+    // const [button, setButton] = useState(true)
 
     const [input, setInput] = useState({
         name: '',
@@ -72,10 +72,10 @@ export default function DogCreate(){
         dispatch(getTemperaments());
     },[dispatch]);
 
-    useEffect(()=>{
-        if (input.name.length > 0 && input.min_height.length > 0  && input.max_height.length > 0 && input.min_weight.length > 0 && input.max_weight.length > 0) setButton(false)
-        else setButton(true)
-    }, [input, setButton])
+    // useEffect(() => {
+    //     if (input.name.length > 0 && input.min_height.length > 0  && input.max_height.length > 0 && input.min_weight.length > 0 && input.max_weight.length > 0) {setButton(false)}
+    //     else setButton(true)
+    // }, [input, setButton])
 
     return (
         <div className={s.container}>
@@ -101,7 +101,7 @@ export default function DogCreate(){
                 <div className={s.weight_height_container}>
                 <div className={s.min_container}>
                     <input autoComplete="off"
-                        type="text"
+                        type="number"
                         value={input.min_height}
                         name ="min_height"
                         onChange={(e) => handleChange(e)}
@@ -112,7 +112,7 @@ export default function DogCreate(){
 
                 <div className={s.max_container}>
                     <input autoComplete="off"
-                        type="text"
+                        type="number"
                         value={input.max_height}
                         name ="max_height"
                         onChange={(e) => handleChange(e)}
@@ -126,7 +126,7 @@ export default function DogCreate(){
                 <div className={s.weight_height_container}>
                 <div className={s.min_container}>
                     <input autoComplete="off"
-                        type="text"
+                        type="number"
                         value={input.min_weight}
                         name ="min_weight"
                         onChange={(e) => handleChange(e)}
@@ -137,7 +137,7 @@ export default function DogCreate(){
 
                 <div className={s.max_container}>
                     <input autoComplete="off"
-                        type="text"
+                        type="number"
                         value={input.max_weight}
                         name ="max_weight"
                         onChange={(e) => handleChange(e)}
@@ -192,7 +192,14 @@ export default function DogCreate(){
             </div>
 
             <div className={s.create_btn_container}>
-                <button className={s.create_btn} disabled={button} type="submit" form="form">Create Dog</button>
+                {
+                    input.name.length > 0 && input.min_height.length > 0  && input.max_height.length > 0 && input.min_weight.length > 0 && input.max_weight.length > 0 && input.life_span.length > 0
+                    ?
+                    <button className={s.create_btn}  type="submit" form="form">Create Dog</button>
+                    :
+                    <button className={s.create_btnErr} disabled='true' type="submit" form="form">Create Dog</button>
+                }
+                
             </div>
 
             <div className={s.temps_container}>
@@ -219,16 +226,16 @@ export default function DogCreate(){
 const validate = (input) => {
     let errors = {}
     if(!input.name){
-        errors.name = `The name is required.(It shouldn't contain numbers)`
+        errors.name = `The name is required.`
     }
     if(!input.min_height || !input.max_height){
-        errors.height = `The weight is required.(It should be: ej '20 to 30')`
+        errors.height = `The weight is required.`
     }
     if(!input.min_weight || !input.max_weight){
-        errors.weight = `The weight is required.(It should't be words)`
+        errors.weight = `The weight is required.`
     }
     if(!input.life_span){
-        errors.life_span = 'The lifespan is required'
+        errors.life_span = `The lifespan is required.(It should be: " minAge - maxAge years").`
     }
     return errors;
 }

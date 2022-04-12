@@ -98,7 +98,9 @@ export default function Home () {
                 
 
                 </div>
-                <SearchBar/>
+                <SearchBar 
+                   setPage = { setCurrentPage }
+                />
 
 
             </div>

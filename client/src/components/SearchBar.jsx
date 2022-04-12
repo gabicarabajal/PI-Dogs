@@ -5,7 +5,7 @@ import { getDogsByName } from '../actions';
 import s from '../styles/SearchBar.module.css';
 import {FaPaw} from 'react-icons/fa';
 
-export default function SearchBar() {
+export default function SearchBar({setPage}) {
     const dispatch = useDispatch();
     const [ name, setName ] = useState('');
     
@@ -18,6 +18,7 @@ export default function SearchBar() {
     function handleSubmit(e){
         e.preventDefault()
         dispatch(getDogsByName(name))
+        setPage(1)
     }
 
     return (

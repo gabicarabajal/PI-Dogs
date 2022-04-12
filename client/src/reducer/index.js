@@ -41,11 +41,23 @@ const rootReducer = (state = initialState, {type, payload}) => {
 
         case 'FILTER_BY_SOURCE':
             const allDogsSource = state.allDogs;
-            const filteredDogsSource = payload === 'Todos' ? allDogsSource : allDogsSource.filter(el => el.hasOwnProperty(payload))
-            return {
-                ...state,
-                dogs: filteredDogsSource
+            const filteredDogsSource = payload === 'createdInDb' ? allDogsSource.filter(el => el.createdInDb) 
+            : allDogsSource.filter(el => !el.createdInDb)
+            console.log(filteredDogsSource, payload);
+            if(!filteredDogsSource.length){
+                alert('There is not dogs created')
+                return{
+                    ...state,
+                    dogs: state.allDogs,
+                }
             }
+            else{
+                return {
+                    ...state,
+                    dogs: payload === 'Todos' ? state.allDogs : filteredDogsSource,
+                }
+            }
+        
 
         case 'ORDER_BY_NAME':
             const sortedName = payload === "A-Z" ? 

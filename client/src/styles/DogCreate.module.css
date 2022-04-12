@@ -335,7 +335,7 @@
     width: 150px;
     background-color: #7B2CBF;
     margin-bottom: 20rem;
-    margin-right: 10rem;
+    margin-right: 11rem;
     color: white;  
 
     font-size: 20px;
@@ -355,3 +355,24 @@
     width: 150px;
     font-size: 22px;
 }
+
+.create_btnErr{
+    height: 40px;
+    width: 150px;
+    background-color: red;
+    margin-bottom: 20rem;
+    margin-right: 11rem;
+    color: white;  
+
+    font-size: 20px;
+    font-weight: 700;
+
+    border-radius: 16px;
+
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.2);
+
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+
