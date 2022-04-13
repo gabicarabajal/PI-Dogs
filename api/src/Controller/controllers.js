@@ -6,19 +6,19 @@ const getApiData = async () => {
     const apiUrl = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
     const apiInfo = await apiUrl.data.map(d => {
         const temperaments = d.temperament?.toString().split(",")
-        const fixedTemps = []
+        const temps = [];
         temperaments?.forEach((el) => {
-            fixedTemps.push({'name' : el.trim()})
+            temps.push({'name' : el.trim()})
         });
 
-        const fixedWeight = []
+        const weightFix = []
         d.weight.metric.split("-")?.forEach(el => {
-            fixedWeight.push(el.trim())
+            weightFix.push(el.trim())
         })
 
         
-        if(!fixedWeight[1]) {
-            fixedWeight.push(fixedWeight[0])
+        if(!weightFix[1]) {
+            weightFix.push(weightFix[0])
         }
 
         const heightFix = [];
@@ -33,9 +33,9 @@ const getApiData = async () => {
         return {
             id: d.id,
             name: d.name,
-            weight: fixedWeight,
+            weight: weightFix,
             height: heightFix,
-            temperaments: fixedTemps,
+            temperaments: temps,
             life_span: d.life_span,
             image: d.image.url,
             api: true

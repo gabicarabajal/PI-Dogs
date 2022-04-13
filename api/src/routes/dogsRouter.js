@@ -2,6 +2,7 @@ const { Router } = require('express');
 const { getAllDogs } = require('../Controller/controllers');
 const router = Router();
 const express = require('express');
+const {Dog} = require('../db');
 
 
 
@@ -31,6 +32,22 @@ router.get("/dogs/:idRaza", async (req, res) => {
         res.status(404).send('Dog not found');
     }
 });
+
+router.delete('/dogs/:idRaza', async (req, res) => {
+    const idRaza = req.params.idRaza;
+    if(idRaza){
+      let dogDelete = await Dog.destroy({
+        where: {
+            id: idRaza
+        }
+    });
+    dogDelete.length ? 
+    res.status(404).send('no se pudo borrar') :
+    res.status(200).send('borrado');
+}
+
+})
+
 
 router.use(express.json());
 
