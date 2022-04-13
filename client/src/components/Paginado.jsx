@@ -5,8 +5,8 @@ import s from '../styles/Paginado.module.css';
 export default function Paginado({ DogsOnPage, allDogs, paginado }) {
     const pageNumbers = [];
 
-    for (let i = 1; i <= Math.ceil(allDogs/DogsOnPage); i++) {
-        pageNumbers.push(i)
+    for (let i = 0; i <= Math.ceil(allDogs/DogsOnPage); i++) {
+        pageNumbers.push(i+1)
     }
 
 

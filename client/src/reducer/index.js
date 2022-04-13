@@ -41,7 +41,7 @@ const rootReducer = (state = initialState, {type, payload}) => {
 
         case 'FILTER_BY_SOURCE':
             const allDogsSource = state.allDogs;
-            const filteredDogsSource = payload === 'createdInDb' ? allDogsSource.filter(el => el.createdInDb) 
+            const filteredDogsSource = payload === 'createdInDB' ? allDogsSource.filter(el => el.createdInDb) 
             : allDogsSource.filter(el => !el.createdInDb)
             console.log(filteredDogsSource, payload);
             if(!filteredDogsSource.length){
@@ -124,6 +124,8 @@ const rootReducer = (state = initialState, {type, payload}) => {
                 ...state,
                 detail: payload
             }
+
+        
 
        default: return state;
        

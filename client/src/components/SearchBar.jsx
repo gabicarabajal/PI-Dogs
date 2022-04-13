@@ -12,14 +12,22 @@ export default function SearchBar({setPage}) {
     function handleInputChange(e){
         e.preventDefault()
         setName(e.target.value);
-        console.log(name);
+        // console.log(name);
     }
 
     function handleSubmit(e){
         e.preventDefault()
         dispatch(getDogsByName(name))
         setPage(1)
+        if (name.length === 0) {
+            return alert("Please input a name to start the search");
+          } else {
+            dispatch(getDogsByName(name));
+            setName(" ");
+          }
     }
+
+
 
     return (
         <div className={s.container}>
@@ -29,7 +37,7 @@ export default function SearchBar({setPage}) {
                placeholder='Search...'
                onChange={(e) => handleInputChange(e)}
             />
-            <button className={s.button} type='submit' onClick={(e) => handleSubmit(e)}><FaPaw/></button>
+            <button className={s.button} type='submit' onClick={(e) => handleSubmit(e)}  ><FaPaw/></button>
         </div>
     )
 }

@@ -359,7 +359,7 @@
 .create_btnErr{
     height: 40px;
     width: 150px;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.349);
     margin-bottom: 20rem;
     margin-right: 11rem;
     color: white;  
@@ -374,5 +374,9 @@
     cursor: pointer;
 
     transition: 0.5s;
+}
+
+input:invalid{
+    border: 2px dashed red;
 }
 

@@ -9,8 +9,8 @@ export default function DogDetail() {
 
     const dispatch = useDispatch();
     let { id } = useParams()
-    console.log(id)
-
+    // console.log(id)
+    
     useEffect(() => {
         dispatch(getDetail(id))
     }, [dispatch])
@@ -36,7 +36,7 @@ export default function DogDetail() {
                                 <h1>{myDog[0].name}</h1>
                             </div>
                             <div className={s.dog_info}>
-                                <h2>HEIGHT:</h2><h4>Between {myDog[0].height} cm</h4>
+                                <h2>HEIGHT:</h2><h4>Between {myDog[0].height[0]} and {myDog[0].height[1]} cm</h4>
                                 <h2>WEIGHT:</h2><h4>Between {myDog[0].weight[0]} and {myDog[0].weight[1]} Kg</h4>
                                 <h2>LIFESPAN:</h2><h4>Between {myDog[0].life_span}</h4>
                             </div>

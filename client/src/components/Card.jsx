@@ -3,8 +3,8 @@ import s from '../styles/Card.module.css';
 
 export default function Card({image, name, temperaments, weight, id}){
     
-    let fixedTemps = []
-    temperaments?.forEach((el) => fixedTemps.push(el.name))
+    let temps = []
+    temperaments?.forEach((el) => temps.push(el.name))
     
     
     return (
@@ -18,7 +18,7 @@ export default function Card({image, name, temperaments, weight, id}){
             </div>
             <div className={s.data_container}>
                 <h2>{name}</h2>
-                <p>{fixedTemps?.join(', ')}<br />
+                <p>{temps?.join(', ')}<br />
                     {weight[0]} and {weight[1]} Kg
                 </p>
     

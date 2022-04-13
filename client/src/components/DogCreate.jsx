@@ -72,10 +72,7 @@ export default function DogCreate(){
         dispatch(getTemperaments());
     },[dispatch]);
 
-    // useEffect(() => {
-    //     if (input.name.length > 0 && input.min_height.length > 0  && input.max_height.length > 0 && input.min_weight.length > 0 && input.max_weight.length > 0) {setButton(false)}
-    //     else setButton(true)
-    // }, [input, setButton])
+   
 
     return (
         <div className={s.container}>
@@ -102,6 +99,7 @@ export default function DogCreate(){
                 <div className={s.min_container}>
                     <input autoComplete="off"
                         type="number"
+                        min='1'
                         value={input.min_height}
                         name ="min_height"
                         onChange={(e) => handleChange(e)}
@@ -113,6 +111,7 @@ export default function DogCreate(){
                 <div className={s.max_container}>
                     <input autoComplete="off"
                         type="number"
+                        max='150'
                         value={input.max_height}
                         name ="max_height"
                         onChange={(e) => handleChange(e)}
@@ -127,6 +126,7 @@ export default function DogCreate(){
                 <div className={s.min_container}>
                     <input autoComplete="off"
                         type="number"
+                        min='1'
                         value={input.min_weight}
                         name ="min_weight"
                         onChange={(e) => handleChange(e)}
@@ -138,6 +138,7 @@ export default function DogCreate(){
                 <div className={s.max_container}>
                     <input autoComplete="off"
                         type="number"
+                        max={200}
                         value={input.max_weight}
                         name ="max_weight"
                         onChange={(e) => handleChange(e)}
@@ -193,7 +194,10 @@ export default function DogCreate(){
 
             <div className={s.create_btn_container}>
                 {
-                    input.name.length > 0 && input.min_height.length > 0  && input.max_height.length > 0 && input.min_weight.length > 0 && input.max_weight.length > 0 && input.life_span.length > 0
+                    input.name.length > 0 && input.min_height.length > 0 && input.max_height <= 150 && input.min_height >= 1  
+                    && input.max_height.length > 0 && input.min_weight.length > 0 && input.max_weight.length > 0 
+                    && input.max_height <= 200 && input.min_weight >= 1
+                    && input.life_span.length > 0
                     ?
                     <button className={s.create_btn}  type="submit" form="form">Create Dog</button>
                     :
@@ -226,13 +230,19 @@ export default function DogCreate(){
 const validate = (input) => {
     let errors = {}
     if(!input.name){
-        errors.name = `The name is required.`
+        errors.name = `Name is required.`
     }
     if(!input.min_height || !input.max_height){
-        errors.height = `The weight is required.`
+        errors.height = `Height is required.`
+    }
+    if(!(input.min_height <= input.max_height)){
+        errors.height = 'Min height cannot be greater than max height';
     }
     if(!input.min_weight || !input.max_weight){
-        errors.weight = `The weight is required.`
+        errors.weight = `Weight is required.`
+    }
+    if(!(input.min_weight <= input.max_weight)){
+        errors.weight = 'Min weight cannot be grater than max weight';
     }
     if(!input.life_span){
         errors.life_span = `The lifespan is required.(It should be: " minAge - maxAge years").`
